@@ -4,8 +4,11 @@ pipeline {
    stages {
       stage('Build') {
         steps {
-          echo 'Building...'
-          echo "Running ${env.BUILD_ID} ${env.BUILD_DISPLAY_NAME} on ${env.NODE_NAME} and JOB ${env.JOB_NAME}"
+          echo "Hello, Pipeline!"
+          // Compile a Java file. This requires JDKconfiguration from Jenkins
+          javac Main.java
+          // Execute the compiled Java binary called HelloWorld. This requires JDK configuration from Jenkins
+          java Main
         }
    }
    stage('Test') {
