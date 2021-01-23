@@ -1,25 +1,14 @@
 pipeline {
-   agent any
+    agent any
+    stages {
 
-   stages {
-      stage('Build') {
-        steps {
-          echo "Hello, Pipeline!"
-          // Compile a Java file. This requires JDKconfiguration from Jenkins
-          javac Main.java
-          // Execute the compiled Java binary called HelloWorld. This requires JDK configuration from Jenkins
-          java Main
+        stage('testing pipeline'){
+          steps{
+		    echo 'test1'
+                sh 'mkdir from-jenkins'
+                sh 'touch from-jenkins/test.txt'
+                }
         }
-   }
-   stage('Test') {
-     steps {
-        echo 'Testing...'
-     }
-   }
-   stage('Deploy') {
-     steps {
-       echo 'Deploying...'
-     }
-   }
-  }
+
+}
 }
